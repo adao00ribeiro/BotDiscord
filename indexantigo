@@ -1,0 +1,79 @@
+// install with: npm install @octokit/webhooks
+const WebhooksApi = require('@octokit/webhooks')
+const webhooks = new WebhooksApi({
+  secret: '123456'
+})
+const Discord = require("discord.js");
+const client = new Discord.Client();
+const config = require("./config.json");
+
+var webhookgit = false;
+var webhooksmmeio = false;
+var nome = "adao ribeiro ";
+
+const webhookClient = new Discord.WebhookClient("761230257105666070", "oOafBFfx7fgOEjHjj6ZN9GrdcBdIWUjTmoL2xb4pkxU7dm2Yb5AZWi_luYqtdDoxgVuq");
+const embed = new Discord.MessageEmbed();
+
+webhooks.on('*', ({id, name, payload}) => {
+ 
+  embed.setTitle('Some Title');
+	embed.setColor('#0099ff');
+  embed.addFields
+  (
+		{ name: payload.repository["name"], value: 'Some value here' },
+		{ name: '\u200B', value: '\u200B' },
+		{ name: 'Inline field title', value: 'Some value here', inline: true },
+		{ name: 'Inline field title', value: 'Some value here', inline: true },
+	);
+
+webhookClient.send('Webhook test', {
+	username: 'some-username',
+	avatarURL: 'https://i.imgur.com/wSTFkRM.png',
+	embeds: [embed],
+});
+})
+
+require('http').createServer(webhooks.middleware).listen(3000)
+// can now receive webhook events at port 3000
+client.on("ready", () => {
+  console.log('Ready!');
+});
+client.on("message", async message => {
+  if(message.webhookID!=null)
+  {
+
+    const m = await message.channel.send(embed.fields["0"].name);
+  }
+  if(message.author.bot) return;
+  if(message.channel.type === "dm") return;
+  if(!message.content.startsWith(config.prefix)) return;
+
+const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+const comando = args.shift().toLowerCase();
+
+// coamdno ping
+if(comando === "ping") {
+  const m = await message.channel.send("Ping?");
+  m.edit(`Pong! A Latência é ${m.createdTimestamp - message.createdTimestamp}ms. A Latencia da API é ${Math.round(client.ping)}ms`);
+}
+
+
+});
+client.login(config.token);
+//weebhook 
+const EventSource = require('eventsource')
+var jsonString;
+const webhookProxyUrl = 'https://smee.io/p7nqsouOvymJthK' // replace with your own Webhook Proxy URL
+const source = new EventSource(webhookProxyUrl)
+source.onmessage = (event) => {
+  const webhookEvent = JSON.parse(event.data)
+   // can now receive webhook events at port 3000
+  webhooks.verifyAndReceive({
+    id: webhookEvent['x-request-id'],
+    name: webhookEvent['x-github-event'],
+    signature: webhookEvent['x-hub-signature'],
+    payload: webhookEvent.body
+   }).catch(console.error)
+    
+}
+

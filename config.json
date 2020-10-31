@@ -1,0 +1,19 @@
+{
+   
+   
+   "bot!":
+     {
+        "prefix": "/",
+        "token": "NzYxMzgxNTE4MzAzOTUyOTQ2.X3Zxyw.GIIYyp_yzkyHNDw5zjUwZmEah7c"      
+     },
+     "bot?":
+     {
+        "prefix": "?",
+        "token": "herettoken"      
+     },
+     "search":{
+        "apiKey":"AIzaSyAJIHrkNOZu3y5a8aBDrljwa5QcIdl4ZOo",
+         "searchEngineId":"3e529facc87f42d4a"
+      }
+   
+}
