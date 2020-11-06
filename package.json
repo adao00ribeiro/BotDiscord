@@ -10,9 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^12.4.1",
-    "googleapis": "^62.0.0",
-    "youtube-feeds": "^2.4.1",
-    "youtube-node": "0.0.4"
+    "discord.js": "^12.4.1"
   }
 }

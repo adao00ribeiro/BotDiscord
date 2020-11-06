@@ -32,7 +32,7 @@ module.exports = class Bot {
     this.client.on("ready", () => {
       // Get the Guild and store it under the variable "list"
 
-        this.client.channels.cache.get("762762277584633878").send("Pai ta on no Off-Topic");
+      //  this.client.channels.cache.get("762762277584633878").send("Pai ta on no Off-Topic");
       //this.client.channels.cache.get("762762277584633883").send("ACORDEI ...... BOM DIA")
      
       console.log("iniciado");
