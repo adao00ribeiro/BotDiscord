@@ -10,6 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^12.4.1"
+    "discord.js": "^12.4.1",
+    "googleapis": "^64.0.0",
+    "gpt3": "^2.1.1",
+    "openai-api-node": "^1.0.0",
+    "yt-search": "^2.4.2"
   }
 }

@@ -5,8 +5,8 @@ const googleSearchCredentials = require('../config.json')
 module.exports = {
     name: 'img',
     description: 'Salva Tags',
-   async execute(message,chanel,args,listmember,tagArray){
-    //
+   async execute(message,args,listmember,tagArray){
+    let chanelOfftopic = message.client.channels.cache.get("771917027447275540");
     let  stringb  = ' ';
     for (let letter of args) {
         stringb += letter + " "
@@ -43,11 +43,19 @@ module.exports = {
         })
         return imagensUrl
     }
+    
+
     if(imagensArray == null){ 
-        chanel.send("Bloqueado");
+        chanelOfftopic.send("Bloqueado");
         return;
     }
-    chanel.send(imagensArray[Math.floor(Math.random() * imagensArray.length)]);
+    if(message.member.roles.cache.has("763517343212634153")){
+        message.channel.send(imagensArray[Math.floor(Math.random() * imagensArray.length)]);
+    }else
+    {
+        chanelOfftopic.send(imagensArray[Math.floor(Math.random() * imagensArray.length)]);
+    }
+        
     },
     
 };
