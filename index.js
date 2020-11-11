@@ -1,4 +1,4 @@
-/*
+
 const BotDiscord = require("./Bot");
 
 const bot = new BotDiscord();
