@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const config = require("./config.json");
 const fs = require("fs");
-
+const Cusuario = require("./usuario");
 //end requere
 
 module.exports = class Bot {
@@ -49,7 +49,7 @@ module.exports = class Bot {
     });
   }
 
-  message() {
+  message(gerenciador) {
     this.client.on("message", async (message) => {
       //if (message.webhookID != null) {
       // const m = await message.channel.send(embed.fields["0"].name);
