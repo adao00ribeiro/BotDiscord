@@ -1,148 +1,34 @@
 const Discord = require("discord.js");
+const Cgerenciador = require("../gerenciadorUsuario");
 module.exports = {
     name: 'rank',
     description: 'Salva Tags',
     execute(message){
+   
+const webhookClient = new Discord.WebhookClient("777148611900604427", "iQVkuRuv1p0xWAHb8IcanzMOE2thX5qTcwpi5-af8k8fIJAsdS318QRxYmE8QTuDiZIo");
+const listembed = []
+for(var i = 0 ; i< 4; i++){
+    const embed2 = new Discord.MessageEmbed()
+    .setColor("#ff0000")
+    .setAuthor('----- '+(i + 1)+' -----')
+    .setTitle('Luiz Bueno')
+    .setThumbnail('https://i.imgur.com/wSTFkRM.png')
+    .addFields(
+	
+		{ name: 'Nivel', value: '8', inline: true },
+        { name: 'Xp', value: '5000', inline: true },
        
-        const exampleEmbed = {
-            color: 0x0099ff,
-            title: 'Rank',
-            url: 'https://images.vexels.com/media/users/3/194842/isolated/preview/584a5b3398eb79bff18ec85eff2c155a-capit--o-militar-rank---cone-by-vexels.png',
-            author: {
-                name: 'Hipoly',
-                icon_url: 'https://images.vexels.com/media/users/3/194842/isolated/preview/584a5b3398eb79bff18ec85eff2c155a-capit--o-militar-rank---cone-by-vexels.png',
-          
-            },
-            description: 'Essa é uma linda descrição',
-            thumbnail: {
-                url: message.guild.iconURL(),
-            },
-            fields: [
-                {
-                    name: 'Nome',
-                    value: 'LUIZ BUENO',
-                    inline: true
-                },
-              
-                {
-                    name: ' Nivel',
-                    value: '  8  ',
-                    inline: true
-                },
-                {
-                    name: '--Xp--',
-                    value: '5000',
-                    inline: true
-                },
-                //aakdjkajdsa
-                {
-                    name: ' NOME',
-                    value: 'LUIZ BUENO',
-                    inline: true
-                },
-              
-                {
-                    name: ' Nivel',
-                    value: '  8  ',
-                    inline: true
-                },
-                {
-                    name: '--Xp--',
-                    value: '5000',
-                    inline: true
-                }, 
-                  //aakdjkajdsa
-                {
-                    name: ' NOME',
-                    value: 'LUIZ BUENO',
-                    inline: true
-                },
-              
-                {
-                    name: ' Nivel',
-                    value: '  8  ',
-                    inline: true
-                },
-                {
-                    name: '--Xp--',
-                    value: '5000',
-                    inline: true
-                },
-                  //aakdjkajdsa
-                  {
-                    name: ' NOME',
-                    value: 'LUIZ BUENO',
-                    inline: true
-                },
-              
-                {
-                    name: ' Nivel',
-                    value: '  8  ',
-                    inline: true
-                },
-                {
-                    name: '--Xp--',
-                    value: '5000',
-                    inline: true
-                },
-                  //aakdjkajdsa
-                  {
-                    name: ' NOME',
-                    value: 'LUIZ BUENO',
-                    inline: true
-                },
-              
-                {
-                    name: ' Nivel',
-                    value: '  8  ',
-                    inline: true
-                },
-                {
-                    name: '--Xp--',
-                    value: '5000',
-                    inline: true
-                },
-                  //aakdjkajdsa
-                  {
-                    name: ' NOME',
-                    value: 'LUIZ BUENO',
-                    inline: true
-                },
-              
-                {
-                    name: ' Nivel',
-                    value: '  8  ',
-                    inline: true
-                },
-                {
-                    name: '--Xp--',
-                    value: '5000',
-                    inline: true
-                },
-                  //aakdjkajdsa
-                  {
-                    name: ' NOME',
-                    value: 'LUIZ BUENO',
-                    inline: true
-                },
-              
-                {
-                    name: ' Nivel',
-                    value: '  8  ',
-                    inline: true
-                },
-                {
-                    name: '--Xp--',
-                    value: '5000',
-                    inline: true
-                }
-            ],
-          
-        };
+	)
+    listembed.push(embed2)
+}
 
-            message.channel.send({ embed: exampleEmbed });
-      
+webhookClient.send('Rank', {
+	username: 'Eva Clone',
+	avatarURL: 'https://i.imgur.com/wSTFkRM.png',
+	embeds: listembed,
+});
+     
         
-    },
+    }
     
 };

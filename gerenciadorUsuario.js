@@ -2,7 +2,7 @@ const usuario = require('./usuario')
 module.exports = class gerenciadorUsuario {
     
      // Static properties shared by all instances
-  static  listUsuario = [new usuario];
+  static  listUsuario = [];
  
   static verificaList(id){
    
