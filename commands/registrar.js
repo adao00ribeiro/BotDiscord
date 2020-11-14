@@ -6,12 +6,8 @@ module.exports = {
 	description: 'registro usuario!',
 	execute(message) {
         
-        const gerenciador = new Cgerenciador();
+      const existUsuario =  Cgerenciador.verificaList(message.author.id);
         
-       
-      const existUsuario =  Cgerenciador.listUsuario.forEach(usuario => {
-            return usuario.id == message.user.id ? true : false;
-        })
 
         if(existUsuario)
         {
@@ -19,7 +15,7 @@ module.exports = {
             return;
         }
 
-        gerenciador.addUsuario(new Cusuario(message.user.id,1 , 0));   
+        Cgerenciador.addUsuario(new Cusuario(message.author.id,1 , 0));   
         message.channel.send("Voce foi registrado");
 
 
