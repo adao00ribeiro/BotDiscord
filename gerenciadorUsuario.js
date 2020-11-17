@@ -13,12 +13,23 @@ module.exports = class gerenciadorUsuario {
     }
       return false;
   }
+  static getUsuario(id){
+    
+    for(var i = 0 ; i < this.listUsuario.length ; i++){
+      if(this.listUsuario[i].id == id){
+      return this.listUsuario[i];
+      }
+    }
+  
+    return null
+  }
   static addUsuario(usuario){
     this.listUsuario.push(usuario);
   }
   static addXpUsuario(usuario,xp)
   {
-    usuario.addXp(xp);
+    
+    usuario.setXp(xp);
   }
   static addNivelUsuario(usuario,nivel)
   {
