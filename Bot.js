@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const config = require("./config.json");
 const fs = require("fs");
-const Cusuario = require("./usuario");
+
 //end requere
 
 module.exports = class Bot {
@@ -10,13 +10,7 @@ module.exports = class Bot {
     this.client = new Discord.Client();
     this.client.commands = new Discord.Collection();
     this.prepareCommands();
-    this.tagArray = []; // empty array
-    this.imagensArray;
-    this.tagArray.push({
-      name: "imagemloco",
-      link:
-        "https://img.ibxk.com.br/2016/02/24/24120655953583.jpg?w=1120&h=420&mode=crop&scale=both",
-    });
+  
   }
 
   prepareCommands() {
@@ -49,7 +43,8 @@ module.exports = class Bot {
     });
   }
 
-  message(gerenciador) {
+  message() {
+    
     this.client.on("message", async (message) => {
       //if (message.webhookID != null) {
       // const m = await message.channel.send(embed.fields["0"].name);

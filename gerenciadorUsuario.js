@@ -1,37 +1,46 @@
-const usuario = require('./usuario')
+let Usuario = require('./usuario');
+
 module.exports = class gerenciadorUsuario {
     
      // Static properties shared by all instances
-  static  listUsuario = [];
+  static listUsuario = [] ;
  
-  static verificaList(id){
-   
-    for(var i = 0 ; i < this.listUsuario.length ; i++){
-      if(this.listUsuario[i].id == id){
+   verificaList(id){
+    console.log(gerenciadorUsuario.listUsuario.length )
+    for(var i = 0 ; i < gerenciadorUsuario.listUsuario.length  ; i++){
+      if(gerenciadorUsuario.listUsuario[i].id == id){
       return true;
       }
     }
       return false;
   }
-  static getUsuario(id){
+   getUsuario(id){
     
-    for(var i = 0 ; i < this.listUsuario.length ; i++){
-      if(this.listUsuario[i].id == id){
-      return this.listUsuario[i];
+    if(gerenciadorUsuario.listUsuario.length ==0){
+      return null
+    }
+
+
+    for(var i = 0 ; i < gerenciadorUsuario.listUsuario.length  ; i++){
+      if(gerenciadorUsuario.listUsuario[i].id == id){
+      return gerenciadorUsuario.listUsuario[i];
       }
     }
   
     return null
   }
-  static addUsuario(usuario){
-    this.listUsuario.push(usuario);
+   addUsuario(usuario){
+    var gerenciadorDados = require('./gerenciadorDados');
+  
+    gerenciadorUsuario.listUsuario.push(usuario);
+    gerenciadorDados.salvaUsuarios( gerenciadorUsuario.listUsuario)
   }
-  static addXpUsuario(usuario,xp)
+   addXpUsuario(usuario,xp)
   {
     
     usuario.setXp(xp);
   }
-  static addNivelUsuario(usuario,nivel)
+   addNivelUsuario(usuario,nivel)
   {
     usuario.addNivelUsuario(nivel);
   }
