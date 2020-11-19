@@ -1,9 +1,7 @@
 var fs = require('fs');
 
 module.exports = class gerenciadorDados {
-    
-     // Static properties shared by all instances
-  static  listDados=[];
+
   
   static salvaUsuarios(list){
 
