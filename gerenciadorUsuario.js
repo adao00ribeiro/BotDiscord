@@ -2,10 +2,9 @@ module.exports = class gerenciadorUsuario {
   // Static properties shared by all instances
   static listUsuario = [];
 
-  xpRequerido = 2000;
+  static xpRequerido = 2000;
 
   verificaList(id) {
-    console.log(gerenciadorUsuario.listUsuario.length);
 
     for (var i = 0; i < gerenciadorUsuario.listUsuario.length; i++) {
       if (gerenciadorUsuario.listUsuario[i].id == id) {
@@ -49,14 +48,24 @@ module.exports = class gerenciadorUsuario {
     var gerenciadorDados = require("./gerenciadorDados");
     gerenciadorUsuario.listUsuario.forEach((element) => {
       if (element.id == id) {
-        element.xp = xp;
-        if (element.xp >= this.xpRequerido) {
-          element.nivel++;
-          element.xp = 0;
-          gerenciadorUsuario.ordenaLista();
-        }
+        element.xp += xp;
+      
+        element.nivel =gerenciadorUsuario.contNivels( element.xp);
+        gerenciadorUsuario.ordenaLista();
+        
       }
     });
     gerenciadorDados.salvaUsuarios(gerenciadorUsuario.listUsuario);
+  }
+
+  static contNivels(xp){
+    var cont = 1;
+  for(var i = this.xpRequerido ; i < xp ; i++)
+  {
+        cont++;
+      
+      i += this.xpRequerido;
+  }
+  return cont;
   }
 };

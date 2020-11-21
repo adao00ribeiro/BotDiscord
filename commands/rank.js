@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
 module.exports = {
   name: "rank",
-  description: "Salva Tags",
-  execute(message) {
+  description: "Rankzao",
+  execute(message ) {
     const GerenciadorUsuario = require("../gerenciadorUsuario");
 
     const Usuario = require("../usuario");
@@ -13,9 +13,9 @@ module.exports = {
     );
     const listembed = [];
  
-  
+      
     for (var i = 0; i < GerenciadorUsuario.listUsuario.length; i++) {
-       
+
     
       const embed2 = new Discord.MessageEmbed()
         .setColor("#ff0000")
